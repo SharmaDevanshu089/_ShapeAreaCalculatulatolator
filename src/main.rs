@@ -22,11 +22,19 @@ fn get_choice() -> (){
     }
 }
 fn execute_choice(choice:i32) {
-    println!("{}",choice);
+    match choice {
+        1 => {},
+        2 => {},
+        3 => {},
+        4 => {},
+        5 => {},
+        0 => {catch_error("RS");}
+        _ => {get_choice();}
+    }
 }
 fn catch_error(Error_Handle:&str){
     match Error_Handle {
-        "WN" => {println!("You Should Enter Number");get_choice();},
+        "WN" => {println!("You Should Enter Number near the Choice");get_choice();},
         _ => {println!("Unknown Error Occoured");initialise_cold_start();}
     }
 }
