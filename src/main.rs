@@ -11,11 +11,24 @@ fn main() {
     initialise_cold_start();
 
 }
-fn get_choice(){
+fn get_choice() -> (){
     println!("Please enter your Choice Below:");
     let mut choice = String::new();
     io::stdin().read_line(&mut choice);
-    let ans = choice.parse::<i32>().expect("There has been Error. Terminating Program");
+    let ans = choice.trim().parse::<i32>();
+    match ans {
+        Ok(ans) => execute_choice(ans),
+        Err(ans)=> catch_error("WN")
+    }
+}
+fn execute_choice(choice:i32) {
+    println!("{}",choice);
+}
+fn catch_error(Error_Handle:&str){
+    match Error_Handle {
+        "WN" => {println!("You Should Enter Number");get_choice();},
+        _ => {println!("Unknown Error Occoured");initialise_cold_start();}
+    }
 }
 fn initialise_cold_start(){
     println!("==================  Hello There  ==================\nThis is area Calculator V1 by Devanshu");
