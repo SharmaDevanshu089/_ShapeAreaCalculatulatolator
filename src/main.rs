@@ -1,3 +1,4 @@
+use std::io;
 //To Do Create a enum for getting shape sizes and then Find their areas
 enum Shape {
     Circle(i32),//radius
@@ -7,5 +8,16 @@ enum Shape {
     Triangle(i32,i32,i32),
 }
 fn main() {
-    print!("Hello World");
+    initialise_cold_start();
+
+}
+fn get_choice(){
+    println!("Please enter your Choice Below:");
+    let mut choice = String::new();
+    io::stdin().read_line(&mut choice);
+    let ans = choice.parse::<i32>().expect("There has been Error. Terminating Program");
+}
+fn initialise_cold_start(){
+    println!("==================  Hello There  ==================\nThis is area Calculator V1 by Devanshu");
+    println!("What Area would you like to find ? \n 1. Circle \n 2. Square \n 3. Rectangle \n 4. RightTriangle \n 5. Triangle");
 }
