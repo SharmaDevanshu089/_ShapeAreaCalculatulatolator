@@ -43,7 +43,11 @@ fn execute_choice(choice:i32) {
             let output = length_of_rectangle*width_of_rectangle;
         },
         4 => {
-            
+            println!("You Have Chosen Right Angled Triangle\n Please enter a side");
+            let side_of_triangle = input_i32();
+            println!("Please enter other side of triangle");
+            let base_of_triangle = input_i32();
+            let output = ((side_of_triangle*base_of_triangle as f32) / 2) as f32;
         },
         5 => {},
         0 => {catch_error("RS");}
