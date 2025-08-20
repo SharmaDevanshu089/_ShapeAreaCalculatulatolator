@@ -29,11 +29,13 @@ fn execute_choice(choice:i32) {
             println!("You have Chosen Circle.\n Please Enter the Radius:\n");
             let radius_of_circle = input_i32();
             let output = (2 as f32) * pi * (radius_of_circle as f32);
+            print_output(output);
         },
         2 => {
             println!("You have Chosen Square.\n Please Enter the Length of Side");
             let side_of_square = input_i32();
             let output =( side_of_square*side_of_square) as f32;
+            print_output(output);
         },
         3 => {
             println!("You Have Chosen Rectangle.\n Please Enter the Length:");
@@ -41,6 +43,7 @@ fn execute_choice(choice:i32) {
             println!("Please enter width");
             let width_of_rectangle = input_i32();
             let output = (length_of_rectangle*width_of_rectangle) as f32;
+            print_output(output);
         },
         4 => {
             println!("You Have Chosen Right Angled Triangle\n Please enter a side");
@@ -48,6 +51,7 @@ fn execute_choice(choice:i32) {
             println!("Please enter other side of triangle");
             let base_of_triangle = input_i32();
             let output = (((side_of_triangle*base_of_triangle) as f32) / 2 as f32) as f32;
+            print_output(output);
         },
         5 => {
             println!("You Have Chosen Triangle \n Please tell all 1st Side:");
@@ -59,6 +63,7 @@ fn execute_choice(choice:i32) {
             let semi_perimeter = (side1+side2+side3) as f32 / 2 as f32;
             let mut output = semi_perimeter*((semi_perimeter - side1 as f32)*(semi_perimeter - side2 as f32)* (semi_perimeter - side3 as f32));
             output = output.sqrt();
+            print_output(output);
         },
         0 => {catch_error("RS");}
         _ => {get_choice();}
@@ -74,6 +79,7 @@ fn catch_error(Error_Handle:&str){
 fn initialise_cold_start(){
     println!("==================  Hello There  ==================\nThis is area Calculator V1 by Devanshu");
     println!("What Area would you like to find ? \n 1. Circle \n 2. Square \n 3. Rectangle \n 4. RightTriangle \n 5. Triangle");
+    get_choice();
 }
 fn input_i32() -> i32 {
     let mut input_tmp = String::new();
@@ -86,6 +92,7 @@ fn input_i32() -> i32 {
 }
 fn print_output(output:f32){
     println!("The Area is {}",output);
+    catch_error("RS");
     // match choice {
     //     1 => {
     //         println!("The Area is {}", output);
