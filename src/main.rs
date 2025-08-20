@@ -1,4 +1,4 @@
-use std::io;
+use std::io::{self, Read};
 //To Do Create a enum for getting shape sizes and then Find their areas
 enum Shape {
     Circle(i32),//radius
@@ -7,6 +7,7 @@ enum Shape {
     RightTriangle(i32,i32),//Side Side
     Triangle(i32,i32,i32),
 }
+static pi:f32 = 3.14;
 fn main() {
     initialise_cold_start();
 
@@ -35,10 +36,20 @@ fn execute_choice(choice:i32) {
 fn catch_error(Error_Handle:&str){
     match Error_Handle {
         "WN" => {println!("You Should Enter Number near the Choice");get_choice();},
+        "RS" => {initialise_cold_start();},
         _ => {println!("Unknown Error Occoured");initialise_cold_start();}
     }
 }
 fn initialise_cold_start(){
     println!("==================  Hello There  ==================\nThis is area Calculator V1 by Devanshu");
     println!("What Area would you like to find ? \n 1. Circle \n 2. Square \n 3. Rectangle \n 4. RightTriangle \n 5. Triangle");
+}
+fn input_i32() -> i32 {
+    let mut input_tmp = String::new();
+    io::stdin().read_line(&mut input_tmp).unwrap_or_else(|_|0);
+    let final_input = input_tmp.trim().parse::<i32>();
+    match final_input {
+        Ok(final_input) => final_input,
+        Err(final_input) => {catch_error("WN"); return 0;}
+    }
 }
