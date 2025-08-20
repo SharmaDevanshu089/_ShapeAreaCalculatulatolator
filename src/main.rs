@@ -85,23 +85,24 @@ fn input_i32() -> i32 {
     }
 }
 fn print_output(output:f32, choice:i32){
-    match choice {
-        1 => {
-            println!("The Area is {}", output);
-        },
-        2 => {
-            println!("The Area is {}",output);
-        },
-        3 => {
-            println!("The Area is {}",output);
-        },
-        4 => {
-            println!("The Area is {}",output);
-        },
-        5 => {
-            println!("The Area is {}",output);
-        },
-        0 => {catch_error("RS");}
-        _ => {get_choice();}
-    }
+    println!("The Area is {}",output);
+    // match choice {
+    //     1 => {
+    //         println!("The Area is {}", output);
+    //     },
+    //     2 => {
+    //         println!("The Area is {}",output);
+    //     },
+    //     3 => {
+    //         println!("The Area is {}",output);
+    //     },
+    //     4 => {
+    //         println!("The Area is {}",output);
+    //     },
+    //     5 => {
+    //         println!("The Area is {}",output);
+    //     },
+    //     0 => {catch_error("RS");}
+    //     _ => {get_choice();}
+    // }
 }
