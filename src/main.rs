@@ -84,7 +84,7 @@ fn input_i32() -> i32 {
         Err(final_input) => {catch_error("WN"); return 0;}
     }
 }
-fn print_output(output:f32, choice:i32){
+fn print_output(output:f32){
     println!("The Area is {}",output);
     // match choice {
     //     1 => {
