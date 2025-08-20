@@ -8,7 +8,7 @@ use std::io;
 //     Triangle(i32,i32,i32),
 // }
 //Dropped enum as its too long to do it this way
-static pi:f32 = 3.14;
+static PI:f32 = 3.14;
 fn main() {
     initialise_cold_start();
 
@@ -17,10 +17,10 @@ fn get_choice() -> (){
     println!("Please enter your Choice Below:");
     let mut choice = String::new();
     io::stdin().read_line(&mut choice);
-    let ans = choice.trim().parse::<i32>();
-    match ans {
-        Ok(ans) => execute_choice(ans),
-        Err(ans)=> catch_error("WN")
+    let _ans = choice.trim().parse::<i32>();
+    match _ans {
+        Ok(_ans) => execute_choice(_ans),
+        Err(_ans)=> catch_error("WN")
     }
 }
 fn execute_choice(choice:i32) {
@@ -28,7 +28,7 @@ fn execute_choice(choice:i32) {
         1 => {
             println!("You have Chosen Circle.\n Please Enter the Radius:\n");
             let radius_of_circle = input_i32();
-            let output = (2 as f32) * pi * (radius_of_circle as f32);
+            let output = (2 as f32) * PI * (radius_of_circle as f32);
             print_output(output);
         },
         2 => {
@@ -69,8 +69,8 @@ fn execute_choice(choice:i32) {
         _ => {get_choice();}
     }
 }
-fn catch_error(Error_Handle:&str){
-    match Error_Handle {
+fn catch_error(error_handle:&str){
+    match error_handle {
         "WN" => {println!("You Should Enter Number near the Choice");get_choice();},
         "RS" => {initialise_cold_start();},
         _ => {println!("Unknown Error Occoured");initialise_cold_start();}
@@ -84,10 +84,10 @@ fn initialise_cold_start(){
 fn input_i32() -> i32 {
     let mut input_tmp = String::new();
     io::stdin().read_line(&mut input_tmp).unwrap_or_else(|_|{catch_error("WN");0});
-    let final_input = input_tmp.trim().parse::<i32>();
-    match final_input {
-        Ok(final_input) => final_input,
-        Err(final_input) => {catch_error("WN"); return 0;}
+    let _final_input = input_tmp.trim().parse::<i32>();
+    match _final_input {
+        Ok(_final_input) => _final_input,
+        Err(_final_input) => {catch_error("WN"); return 0;}
     }
 }
 fn print_output(output:f32){
