@@ -1,12 +1,13 @@
-use std::io::{self, Read};
+use std::{io::{self, Read}, process::Output};
 //To Do Create a enum for getting shape sizes and then Find their areas
-enum Shape {
-    Circle(i32),//radius
-    Square(i32),//side in cm
-    Rectangle(i32,i32),//sideVertical sideHorizontal 
-    RightTriangle(i32,i32),//Side Side
-    Triangle(i32,i32,i32),
-}
+// enum Shape {
+//     Circle(i32),//radius
+//     Square(i32),//side in cm
+//     Rectangle(i32,i32),//sideVertical sideHorizontal 
+//     RightTriangle(i32,i32),//Side Side
+//     Triangle(i32,i32,i32),
+// }
+//Dropped enum as its too long to do it this way
 static pi:f32 = 3.14;
 fn main() {
     initialise_cold_start();
@@ -26,12 +27,24 @@ fn execute_choice(choice:i32) {
     match choice {
         1 => {
             println!("You have Chosen Circle.\n Please Enter the Radius:\n");
-            let circle = Shape::Circle(input_i32());
-            let output = (2 as f32) * pi * (circle as f32);
+            let radius_of_circle = input_i32();
+            let output = (2 as f32) * pi * (radius_of_circle as f32);
         },
-        2 => {},
-        3 => {},
-        4 => {},
+        2 => {
+            println!("You have Chosen Square.\n Please Enter the Length of Side");
+            let side_of_square = input_i32();
+            let output = side_of_square*side_of_square;
+        },
+        3 => {
+            println!("You Have Chosen Rectangle.\n Please Enter the Length:");
+            let length_of_rectangle = input_i32();
+            println!("Please enter width");
+            let width_of_rectangle = input_i32();
+            let output = length_of_rectangle*width_of_rectangle;
+        },
+        4 => {
+            
+        },
         5 => {},
         0 => {catch_error("RS");}
         _ => {get_choice();}
