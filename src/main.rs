@@ -24,7 +24,11 @@ fn get_choice() -> (){
 }
 fn execute_choice(choice:i32) {
     match choice {
-        1 => {},
+        1 => {
+            println!("You have Chosen Circle.\n Please Enter the Radius:\n");
+            let circle = Shape::Circle(input_i32());
+            let output = (2 as f32) * pi * (circle as f32);
+        },
         2 => {},
         3 => {},
         4 => {},
