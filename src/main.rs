@@ -47,9 +47,19 @@ fn execute_choice(choice:i32) {
             let side_of_triangle = input_i32();
             println!("Please enter other side of triangle");
             let base_of_triangle = input_i32();
-            let output = ((side_of_triangle*base_of_triangle as f32) / 2) as f32;
+            let output = (((side_of_triangle*base_of_triangle) as f32) / 2 as f32) as f32;
         },
-        5 => {},
+        5 => {
+            println!("You Have Chosen Triangle \n Please tell all 1st Side:");
+            let side1 = input_i32();
+            println!("Please tell the Second side :");
+            let side2 = input_i32();
+            println!("Please tell the third side:");
+            let side3 = input_i32();
+            let semi_perimeter = (side1+side2+side3) as f32 / 2 as f32;
+            let mut output = semi_perimeter*((semi_perimeter - side1 as f32)*(semi_perimeter - side2 as f32)* (semi_perimeter - side3 as f32));
+            output = output.sqrt();
+        },
         0 => {catch_error("RS");}
         _ => {get_choice();}
     }
