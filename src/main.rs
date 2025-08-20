@@ -46,7 +46,7 @@ fn initialise_cold_start(){
 }
 fn input_i32() -> i32 {
     let mut input_tmp = String::new();
-    io::stdin().read_line(&mut input_tmp).unwrap_or_else(|_|0);
+    io::stdin().read_line(&mut input_tmp).unwrap_or_else(|_|{catch_error("WN");0});
     let final_input = input_tmp.trim().parse::<i32>();
     match final_input {
         Ok(final_input) => final_input,
