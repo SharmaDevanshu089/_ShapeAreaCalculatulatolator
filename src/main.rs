@@ -33,14 +33,14 @@ fn execute_choice(choice:i32) {
         2 => {
             println!("You have Chosen Square.\n Please Enter the Length of Side");
             let side_of_square = input_i32();
-            let output = side_of_square*side_of_square;
+            let output =( side_of_square*side_of_square) as f32;
         },
         3 => {
             println!("You Have Chosen Rectangle.\n Please Enter the Length:");
             let length_of_rectangle = input_i32();
             println!("Please enter width");
             let width_of_rectangle = input_i32();
-            let output = length_of_rectangle*width_of_rectangle;
+            let output = (length_of_rectangle*width_of_rectangle) as f32;
         },
         4 => {
             println!("You Have Chosen Right Angled Triangle\n Please enter a side");
@@ -82,5 +82,26 @@ fn input_i32() -> i32 {
     match final_input {
         Ok(final_input) => final_input,
         Err(final_input) => {catch_error("WN"); return 0;}
+    }
+}
+fn print_output(output:f32, choice:i32){
+    match choice {
+        1 => {
+            println!("The Area is {}", output);
+        },
+        2 => {
+            println!("The Area is {}",output);
+        },
+        3 => {
+            println!("The Area is {}",output);
+        },
+        4 => {
+            println!("The Area is {}",output);
+        },
+        5 => {
+            println!("The Area is {}",output);
+        },
+        0 => {catch_error("RS");}
+        _ => {get_choice();}
     }
 }
